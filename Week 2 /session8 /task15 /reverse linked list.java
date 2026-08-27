@@ -14,7 +14,7 @@ class Solution {
 
             // Move prev forward
             prev = current;
-
+1
             // Move current forward
             current = next;
         }
