@@ -1,0 +1,33 @@
+
+import java.util.*;
+
+class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+
+        List<List<Integer>> result = new ArrayList<>();
+
+        backtrack(nums, 0, new ArrayList<>(), result);
+
+        return result;
+    }
+
+    public void backtrack(int[] nums, int index,
+                          List<Integer> current,
+                          List<List<Integer>> result) {
+
+        // Add current subset
+        result.add(new ArrayList<>(current));
+
+        for (int i = index; i < nums.length; i++) {
+
+            // Choose element
+            current.add(nums[i]);
+
+            // Explore next elements
+            backtrack(nums, i + 1, current, result);
+
+            // Remove element (backtracking)
+            current.remove(current.size() - 1);
+        }
+    }
+}
